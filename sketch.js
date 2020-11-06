@@ -18,7 +18,7 @@ function draw() {
   background(255,255,255);  
   car.velocityX = speed
   // collision();
-  if(hasCollided(car,wall)){
+  if(wall.x - car.x < (car.width + wall.width)/2){
     car.velocityX = 0
     var deformation = 0.5 * weight * speed * speed
     if(deformation > 180){
@@ -36,12 +36,3 @@ function draw() {
   drawSprites();
 }
 
-function hasCollided(lcar,lwall){
-  carRightEdge = lcar.x + lcar.width;
-  wallLeftEdge = lwall.x
-  if(carRightEdge>=wallLeftEdge)
-  {
-    return true
-  } 
-  return false
-}
